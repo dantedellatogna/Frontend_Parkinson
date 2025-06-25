@@ -1,0 +1,58 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "Front-end of Parkinson-MRI",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "build": "electron-builder",
+    "make": "electron-builder"
+  },
+  "author": "Dante Della Togna",
+  "license": "MIT",
+  "devDependencies": {
+    "@electron-forge/cli": "^7.6.1",
+    "@electron-forge/maker-deb": "^7.6.1",
+    "@electron-forge/maker-rpm": "^7.6.1",
+    "@electron-forge/maker-squirrel": "^7.6.1",
+    "@electron-forge/maker-zip": "^7.6.1",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.6.1",
+    "@electron-forge/plugin-fuses": "^7.6.1",
+    "electron": "^34.0.2",
+    "electron-builder": "^26.0.12"
+  },
+  "dependencies": {
+    "@electron/remote": "^2.1.2",
+    "cornerstone-core": "^2.6.1",
+    "cornerstone-math": "^0.1.10",
+    "cornerstone-tools": "^6.0.10",
+    "cornerstone-wado-image-loader": "^4.13.2",
+    "nifti-js": "^1.0.1"
+  },
+  "config": {
+    "forge": "./forge.config.js"
+  },
+  "keywords": [],
+  "build": {
+    "win": {
+      "target": "portable"
+    },
+    "files": [
+      "index.html",
+      "styles.css",
+      "main.js",
+      "preload.js",
+      "renderer.js"
+    ],
+    "extraFiles": [
+      {
+        "from": "python",
+        "to": "resources/python",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ]
+  }
+}
