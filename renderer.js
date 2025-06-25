@@ -62,12 +62,27 @@ runInferenceButton.addEventListener("click", async () => {
             throw new Error(result?.error || "Respuesta inválida del backend");
         }
 
-        document.getElementById("result").innerText = result.Diagnosis;
-        document.getElementById("output").innerText = result.Output.toFixed(4);
+        const output = result.Output;
+        document.getElementById("output").innerText = output.toFixed(4);
+        //document.getElementById("result").innerText = result.Diagnosis;
+
+        updateIndicator(output);
+
     } catch (error) {
         console.error("Error en la inferencia:", error.message);
-        document.getElementById("result").innerText = "Error al procesar el archivo.";
+        //document.getElementById("result").innerText = "Error al procesar el archivo.";
         document.getElementById("output").innerText = "-";
     }
 });
 
+function updateIndicator(output) {
+    const bar = document.getElementById('result_bar');
+    const container = document.getElementById('indicatorContainer');
+    const valueLabel = document.getElementById('indicatorValue');
+
+    const barWidth = bar.getBoundingClientRect().width;
+    const offset = output * barWidth;
+
+    container.style.marginLeft = `${offset - 7}px`; // center the arrow
+    valueLabel.textContent = output.toFixed(4);
+}

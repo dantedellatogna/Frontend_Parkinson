@@ -1,6 +1,6 @@
 html *
 {
-    font-family: JetBrains Mono;
+    font-family: Arial;
 }
 
 body {
@@ -13,13 +13,13 @@ body {
 .description {
     float: left;
     width: 400px;
-    margin-top: 15px;
+    margin-top: 0px;
 }
 
 .evaluation {
     float: left;
     width: 400px;
-    margin-top: 15px;
+    margin-top: 0px;
     padding-left: 100px;
 }
 
@@ -28,4 +28,94 @@ body {
     height: 400px;
     background-color: black;
     margin-bottom: 15px;
+}
+
+#selectedFile {
+    font-size: 13px;
+    width: 400px;
+    height: 5px;
+    margin-bottom: 25px;
+}
+
+#result_bar {
+    width: 400px;
+    height: 5px;
+    background: linear-gradient(90deg, skyblue, white, red);
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 1px;
+    padding-bottom: 15px;
+}
+
+.bar_numbers {
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+    margin-top: 5px;
+}
+
+.bar_numbers p {
+    margin: 0;
+    padding: 0;
+    width: auto;
+    text-align: center;
+    font-size: 14px;
+}
+
+.bar_labels {
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+    margin-top: 5px;
+    margin-bottom: -20px;
+}
+
+.bar_labels p {
+    margin: 0;
+    padding: 0;
+    width: auto;
+    text-align: center;
+    font-size: 14px;
+}
+
+.result-values {
+    font-size: 25px;
+    height:50px;
+    padding-top: 15px;
+}
+
+#runInference {
+    margin-bottom: 60px;
+}
+
+#indicatorContainer {
+    position: relative;
+    width: 0;
+    height: 0;
+    margin-top: -5px;
+    margin-left: calc(200px - 0px); /* initially centered (0.5 * 400 - 7) */
+}
+
+#indicatorValue {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    background-color: white;
+    padding: 1px 6px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+#indicator {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 10px solid black; /* triangle pointing up */
 }
